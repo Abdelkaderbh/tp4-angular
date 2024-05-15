@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../../constants/tasks.interface';
 
 @Component({
 selector: 'app-task-form',
@@ -13,6 +14,10 @@ export class TaskFormComponent implements OnInit {
         }
   addTask() {
     if (this.newTask.trim() !== '') {
+      const newTask: Task = {
+        name: this.newTask,
+        completed: false
+      };
     this.tasks.push(this.newTask);
     this.newTask = '';
         }
